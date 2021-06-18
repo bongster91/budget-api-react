@@ -1,25 +1,59 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
+import axios from "axios";
+import { apiURL } from "./util/apiURL";
 import './App.css';
 
+import NavBar from './components/NavBar';
+import FourOFour from './Pages/FourOFour';
+import Home from './Pages/Home';
+import Index from './Pages/Index';
+import ShowIndex from './Pages/ShowIndex';
+
+const API_BASE = apiURL();
+
 function App() {
+  const [ transactions, setTransactions ] = useState([]);
+
+  // addTransaction = () => {};
+
+  // deleteTransaction = () => {};
+
+  // updateTransaction = () => {};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavBar />
+        <main>
+          <Switch>
+
+            <Route path="/" exact>
+              <Home />
+            </Route>
+
+            <Route path="/transactions">
+              <Index />
+            </Route>
+
+            {/* <Route path="/transactions/new">
+              <New />
+            </Route>
+
+            <Route path="/transactions/:index">
+              <ShowIndex />
+            </Route> */}
+
+            <Route path="*">
+              <FourOFour />
+            </Route>
+
+          </Switch>
+        </main>
+      </Router>
     </div>
-  );
-}
+  )
+
+};
 
 export default App;
