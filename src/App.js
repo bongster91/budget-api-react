@@ -25,7 +25,6 @@ const API_BASE = apiURL();
 
 function App() {
   const [ transactions, setTransactions ] = useState([]);
-  const [ balance, setBalance ] = useState([]);
 
   const addTransaction = (newTransaction) => {
     axios
@@ -40,27 +39,11 @@ function App() {
 
   // deleteTransaction = () => {};
 
-  const updateTransaction = (updatedTransaction, index) => {
-    axios.put(`${API_BASE}/transactions/${index}`, updatedTransaction)
-      .then(
-        (response) => {
-          const updateArray = [...transactions];
-          updateArray[index] = updatedTransaction;
-          setTransactions(updateArray);
-        }, 
-        (error) => {
-          console.log(error);
-        }
-      );
-  };
-
   useEffect(() => {
     axios.get(`${API_BASE}/transactions`).then(response => {
         const { data } = response;
         setTransactions(data);
       });
-      const getBalance = transactions.filter(transaction => transaction.amount);
-      console.log(getBalance)
   }, []);
 
   return (
@@ -78,13 +61,13 @@ function App() {
             </Route>
 
             <Route path="/transactions/:index">
-              <ShowIndex />
+              <ShowIndex transactions={transactions}/>
             </Route>
 
             <Route path="/transactions">
               <Index transactions={transactions}/>
             </Route>
-            
+
             <Route path="*">
               <FourOFour />
             </Route>
@@ -92,8 +75,7 @@ function App() {
           </Switch>
       </Router>
     </div>
-  )
-
+  );
 };
 
 export default App;

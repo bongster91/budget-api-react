@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button, Navbar } from 'react-bootstrap';
 
-export default function NavBar() {
+function NavBar() {
     return (
         <Navbar 
             position="top"
@@ -21,3 +21,5 @@ export default function NavBar() {
         </Navbar>
     )
 };
+
+export default NavBar;
