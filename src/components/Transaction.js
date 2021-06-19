@@ -1,10 +1,13 @@
 import React from 'react'
 
-function Transaction() {
+function Transaction({ transaction, index }) {
     return (
-        <div>
-            hello world
-        </div>
+        <tr>
+            <td>{index + 1}</td>
+            <td>{transaction.date}</td>
+            <td>{transaction.name}</td>
+            <td>{transaction.amount}</td>
+        </tr>
     );
 };
 

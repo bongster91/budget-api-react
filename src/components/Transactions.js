@@ -1,9 +1,10 @@
 import Transaction from "./Transaction";
+import { Table } from "react-bootstrap";
 
-export default function Transactions () {
+export default function Transactions ({ transactions }) {
     return (
         <div className="Transactions">
-            <table striped bordered hover variant="dark">
+            <Table striped bordered hover variant="dark">
                 
                 <thead>
                     <tr>
@@ -15,10 +16,18 @@ export default function Transactions () {
                 </thead>
 
                 <tbody>
-                    <Transaction />
+                    {transactions.map((transaction, index) => {
+                        return (
+                            <Transaction 
+                                key={index}
+                                transaction={transaction}
+                                index={index}
+                            />
+                        );
+                    })}
                 </tbody>
 
-            </table>
+            </Table>
         </div>
     );
 };

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import NewTransaction from '../components/NewTransaction';
 
-function New() {
+function New({ addTransaction }) {
     return (
-        <div>
-            hello
+        <div className="New">
+            <h2>Add a new transaction</h2>
+            <NewTransaction addTransaction={addTransaction}/>
         </div>
     )
 }
