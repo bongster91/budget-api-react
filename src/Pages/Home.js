@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
-export default function Home () {
+function Home () {
     return (
         <div className="Home">
             <h1>Welcome to the Budget App</h1>
@@ -11,3 +11,5 @@ export default function Home () {
         </div>
     )
 };
+
+export default Home;

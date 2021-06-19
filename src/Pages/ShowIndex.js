@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import TransactionCard from '../components/TransactionCard';
 
-function ShowIndex() {
+function ShowIndex({ transactions }) {
     return (
-        <div>
-            Hello
+        <div className="card-container">
+            <TransactionCard transactions={transactions}/>
         </div>
     )
 }

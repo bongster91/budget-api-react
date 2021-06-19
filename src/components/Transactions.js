@@ -1,7 +1,7 @@
 import Transaction from "./Transaction";
 import { Table } from "react-bootstrap";
 
-export default function Transactions ({ transactions }) {
+function Transactions ({ transactions }) {
     return (
         <div className="Transactions">
             <Table striped bordered hover variant="dark">
@@ -31,3 +31,5 @@ export default function Transactions ({ transactions }) {
         </div>
     );
 };
+
+export default Transactions;

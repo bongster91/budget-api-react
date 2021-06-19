@@ -2,13 +2,11 @@ import React, { Link } from 'react'
 
 function Transaction({ transaction, index }) {
     return (
-        <tr>
-           
+        <tr> 
             <td>{index + 1}</td>
             <td>{transaction.date}</td>
             <td>{transaction.name}</td>
-            <td>{transaction.amount}</td>
-            
+            <td>{transaction.amount}</td>     
         </tr>
     );
 };

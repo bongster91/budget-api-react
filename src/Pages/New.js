@@ -7,7 +7,7 @@ function New({ addTransaction }) {
             <h2>Add a new transaction</h2>
             <NewTransaction addTransaction={addTransaction}/>
         </div>
-    )
-}
+    );
+};
 
-export default New
+export default New;

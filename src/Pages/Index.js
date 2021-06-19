@@ -1,6 +1,6 @@
 import Transactions from "../components/Transactions";
 
-function Index ({ transactions, amounts }) {
+function Index ({ transactions }) {
 
     return (
         <div className="Index">
