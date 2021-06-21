@@ -3,13 +3,13 @@ import React, { Link } from 'react';
 function Transaction({ transaction, index }) {
     const date = new Date(transaction.date).toDateString();
 
+    transaction.name = <a href={`/transaction/${index}`}>{transaction.name}</a>
+
     return (
-        <tr >
+        <tr>
             <td>{index + 1}</td>
             <td>{date}</td>
-            <td>
-                <Link to={`/transactions/${index}`}>{transaction.name}</Link>
-            </td>
+            <td>{transaction.name}</td>
             <td>{transaction.amount}</td>     
         </tr>
     );
