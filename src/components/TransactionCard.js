@@ -33,12 +33,13 @@ function TransactionCard(props) {
         >
             <Card.Body>
                 <Card.Title>{transaction.name}</Card.Title>
+                
                 <Card.Subtitle>{transaction.date}</Card.Subtitle>
                 <Card.Subtitle>{transaction.amount}</Card.Subtitle>
-                <Card.Text>
-                {transaction.memo}
-                </Card.Text>
-                <Card.Link>Edit</Card.Link>{" "}
+                
+                <Card.Text>{transaction.memo}</Card.Text>
+                
+                <Card.Link href={`/transactions/${index}/edit`}>Edit</Card.Link>{" "}
                 <Card.Link>Delete</Card.Link>
             </Card.Body>
         </Card>

@@ -13,6 +13,7 @@ import Home from './Pages/Home';
 import Index from './Pages/Index';
 import ShowIndex from './Pages/ShowIndex';
 import New from "./Pages/New";
+import Edit from "./Pages/Edit";
 
 <link
   rel="stylesheet"
@@ -72,12 +73,12 @@ function App() {
               <New addTransaction={addTransaction}/>
             </Route>
 
-            <Route path="/transactions/:index">
-              <ShowIndex transactions={transactions}/>
-            </Route>
-
             <Route path="/transactions/:index/edit">
               <Edit transactions={transactions} updateTransaction={updateTransaction}/>
+            </Route>
+
+            <Route path="/transactions/:index">
+              <ShowIndex transactions={transactions}/>
             </Route>
 
             <Route path="/transactions">

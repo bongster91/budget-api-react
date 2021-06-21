@@ -1,5 +1,4 @@
 import TransactionEdit from "../components/TransactionEdit";
-import React from 'react';
 
 function Edit({ transactions, updateTransaction }) {
     return (
