@@ -7,8 +7,9 @@ import { apiURL } from '../util/apiURL';
 const API_BASE = apiURL();
 
 function TransactionCard(props) {
-   
+    const { transactions, deleteTransaction } = props;
     const [ transaction, setTransaction ] = useState([]);
+    const date = new Date(transaction.date).toDateString();
     const amount = Number(transaction.amount)
     let { index } = useParams();
     let history = useHistory();
@@ -23,6 +24,10 @@ function TransactionCard(props) {
             });
     }, [index, history]);
 
+    const handleClick = (e) => {
+        deleteTransaction(index);
+    };
+
     return (
         <Card 
             bg="secondary" 
@@ -34,13 +39,13 @@ function TransactionCard(props) {
             <Card.Body>
                 <Card.Title>{transaction.name}</Card.Title>
                 
-                <Card.Subtitle>{transaction.date}</Card.Subtitle>
+                <Card.Subtitle>{date}</Card.Subtitle>
                 <Card.Subtitle>{`$${amount.toLocaleString('en-US')}`}</Card.Subtitle>
                 
                 <Card.Text>{transaction.memo}</Card.Text>
                 
                 <Card.Link href={`/transactions/${index}/edit`}>Edit</Card.Link>{" "}
-                <Card.Link href={`/transactions`}>Delete</Card.Link>
+                <Card.Link onClick={handleClick} href={`/transactions`}>Delete</Card.Link>
             </Card.Body>
         </Card>
     );
