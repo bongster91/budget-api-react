@@ -4,6 +4,7 @@ import { Form, Button } from "react-bootstrap";
 
 function NewTransaction(props) {
     const { addTransaction } = props;
+
     const [ transaction, setTransaction ] = useState({
         date: "",
         name: "",

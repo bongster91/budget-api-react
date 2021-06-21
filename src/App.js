@@ -53,7 +53,8 @@ function App() {
   };
 
   useEffect(() => {
-    axios.get(`${API_BASE}/transactions`).then(response => {
+    axios.get(`${API_BASE}/transactions`)
+      .then(response => {
         const { data } = response;
         setTransactions(data);
       });

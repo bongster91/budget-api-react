@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { apiURL } from '../util/apiURL';

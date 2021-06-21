@@ -3,10 +3,10 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { Form, Button } from 'react-bootstrap';
 
 function TransactionEdit(props) {
+    const { transactions, updateTransaction } = props;
     let { index } = useParams();
     let history = useHistory();
-    console.log(props)
-  
+
     const [ transaction, setTransaction ] = useState({
         name: "",
         date: "",
@@ -23,7 +23,7 @@ function TransactionEdit(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.updateTransaction(transaction, index);
+        updateTransaction(transaction, index);
         history.push(`/transactions/${index}`);
     };
 
@@ -35,7 +35,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="text"
                     id="name"
-                   
+                    //defaultValue={defaultValues.name}
                     onChange={handleInputChange} 
                     required
                 />    
@@ -46,7 +46,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="date"
                     id="date" 
-                    placeholder="Date"
+                    //defaultValue={defaultValues.date}
                     onChange={handleInputChange} 
                     required
                 />    
@@ -57,7 +57,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="number"
                     id="amount" 
-                    placeholder="Amount"
+                    //defaultValue={defaultValues.amount}
                     onChange={handleInputChange} 
                     required
                 />    
@@ -68,7 +68,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="text"
                     id="memo" 
-                    placeholder="Memo of Where Transaction From"
+                    //defaultValue={defaultValues.memo}
                     onChange={handleInputChange} 
                     required
                 />    
