@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import axios from 'axios';
 import { apiURL } from '../util/apiURL';
 
@@ -9,7 +9,7 @@ const API_BASE = apiURL();
 function TransactionCard(props) {
    
     const [ transaction, setTransaction ] = useState([]);
-
+    const amount = Number(transaction.amount)
     let { index } = useParams();
     let history = useHistory();
 
@@ -27,7 +27,7 @@ function TransactionCard(props) {
         <Card 
             bg="secondary" 
             text="white" 
-            classname="mb-2" 
+            className="mb-2" 
             style={{ width: '18rem' }}
             position="center"
         >
@@ -35,12 +35,12 @@ function TransactionCard(props) {
                 <Card.Title>{transaction.name}</Card.Title>
                 
                 <Card.Subtitle>{transaction.date}</Card.Subtitle>
-                <Card.Subtitle>{transaction.amount}</Card.Subtitle>
+                <Card.Subtitle>{`$${amount.toLocaleString('en-US')}`}</Card.Subtitle>
                 
                 <Card.Text>{transaction.memo}</Card.Text>
                 
                 <Card.Link href={`/transactions/${index}/edit`}>Edit</Card.Link>{" "}
-                <Card.Link>Delete</Card.Link>
+                <Card.Link href={`/transactions`}>Delete</Card.Link>
             </Card.Body>
         </Card>
     );

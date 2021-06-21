@@ -1,9 +1,7 @@
-import React, { Link } from 'react';
-
 function Transaction({ transaction, index }) {
     const date = new Date(transaction.date).toDateString();
 
-    transaction.name = <a href={`/transaction/${index}`}>{transaction.name}</a>
+    transaction.name = <a href={`/transactions/${index}`}>{transaction.name}</a>
 
     return (
         <tr>

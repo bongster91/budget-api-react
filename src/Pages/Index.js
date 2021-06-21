@@ -5,12 +5,13 @@ function Index ({ transactions }) {
     let [ balance, setBalance ] = useState(0);
 
     useEffect(() => {
-    let numArray = transactions
-          .map(transaction => Number(transaction.amount))
-          .reduce((a, b) => a + b);
-        setBalance(numArray);
-    }, []);
-    
+        let numArray = transactions
+            .map(transaction => Number(transaction.amount))
+            .reduce((a, b) => a + b, 0);
+            setBalance(numArray);
+
+    }, [transactions]);
+
     return (
         <div className="Index">
             { 

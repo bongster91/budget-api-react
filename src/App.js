@@ -37,7 +37,17 @@ function App() {
       });
   };
 
-  // deleteTransaction = () => {};
+  const deleteTransaction = (index) => {
+    axios.delete(`${API_BASE}/transactions/${index}`)
+      .then(response => {
+        const updateArray = [...transactions];
+        updateArray.splice(index, 1);
+        setTransactions(updateArray)
+      }, (error) => {
+        console.log(error)
+      });
+  };
+
   const updateTransaction = (updatedTransaction, index) => {
     axios.put(`${API_BASE}/transactions/${index}`, updatedTransaction)
       .then(
@@ -57,7 +67,7 @@ function App() {
         const { data } = response;
         setTransactions(data);
       });
-  }, []);
+  }, [transactions]);
 
   return (
     <div className="App">
@@ -78,7 +88,7 @@ function App() {
             </Route>
 
             <Route path="/transactions/:index">
-              <ShowIndex transactions={transactions}/>
+              <ShowIndex transactions={transactions} deleteTransaction={deleteTransaction}/>
             </Route>
 
             <Route path="/transactions">
