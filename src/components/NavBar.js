@@ -16,6 +16,10 @@ function NavBar() {
             </Button>
 
             <Button variant="dark-link">
+                <Link to="/transactions">Transaction History</Link>
+            </Button>
+
+            <Button variant="dark-link">
                 <Link to="/transactions/new">New Transaction</Link>
             </Button>
         </Navbar>

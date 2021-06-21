@@ -38,6 +38,18 @@ function App() {
   };
 
   // deleteTransaction = () => {};
+  const updateTransaction = (updatedTransaction, index) => {
+    axios.put(`${API_BASE}/transactions/${index}`, updatedTransaction)
+      .then(
+        (response) => {
+          const updateArray = [...transactions];
+          updateArray[index] = updatedTransaction;
+          setTransactions(updateArray);
+        }, (error) => {
+          console.log(error)
+        }
+      );
+  };
 
   useEffect(() => {
     axios.get(`${API_BASE}/transactions`).then(response => {
@@ -62,6 +74,10 @@ function App() {
 
             <Route path="/transactions/:index">
               <ShowIndex transactions={transactions}/>
+            </Route>
+
+            <Route path="/transactions/:index/edit">
+              <Edit transactions={transactions} updateTransaction={updateTransaction}/>
             </Route>
 
             <Route path="/transactions">
