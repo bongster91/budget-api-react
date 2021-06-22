@@ -30,7 +30,7 @@ function TransactionCard(props) {
 
     return (
         <Card 
-            bg="secondary" 
+            bg="dark" 
             text="white" 
             className="mb-2" 
             style={{ width: '18rem' }}
@@ -40,8 +40,8 @@ function TransactionCard(props) {
                 <Card.Title>{transaction.name}</Card.Title>
                 
                 <Card.Subtitle>{date}</Card.Subtitle>
-                <Card.Subtitle>{`$${amount.toLocaleString('en-US')}`}</Card.Subtitle>
-                
+
+                <Card.Text>{`$${amount.toLocaleString('en-US')}`}</Card.Text>
                 <Card.Text>{transaction.memo}</Card.Text>
                 
                 <Card.Link href={`/transactions/${index}/edit`}>Edit</Card.Link>{" "}

@@ -27,8 +27,7 @@ function App() {
   const [ transactions, setTransactions ] = useState([]);
 
   const addTransaction = (newTransaction) => {
-    axios
-      .post(`${API_BASE}/transactions`, newTransaction)
+    axios.post(`${API_BASE}/transactions`, newTransaction)
       .then(response => {
         setTransactions([...transactions, newTransaction]);
       })
@@ -75,7 +74,7 @@ function App() {
           <NavBar />
           <Switch>
 
-            <Route path="/" exact>
+            <Route exact path="/">
               <Home />
             </Route>
             

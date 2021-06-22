@@ -3,7 +3,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { Form, Button } from 'react-bootstrap';
 
 function TransactionEdit(props) {
-    const { transactions, updateTransaction } = props;
+    const { updateTransaction } = props;
     let { index } = useParams();
     let history = useHistory();
 
@@ -13,7 +13,7 @@ function TransactionEdit(props) {
         amount: "",
         memo: ""
     });
-
+    
     const handleInputChange = (event) => {
         setTransaction({
             ...transaction,
@@ -22,9 +22,9 @@ function TransactionEdit(props) {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         updateTransaction(transaction, index);
-        history.push(`/transactions/${index}`);
+        history.push(`/transactions`);
     };
 
     return (
@@ -35,7 +35,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="text"
                     id="name"
-                    //defaultValue={defaultValues.name}
+                    //defaultValue={transactions[index].name}
                     onChange={handleInputChange} 
                     required
                 />    
@@ -46,7 +46,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="date"
                     id="date" 
-                    //defaultValue={defaultValues.date}
+                    //defaultValue={transactions[index].date}
                     onChange={handleInputChange} 
                     required
                 />    
@@ -57,7 +57,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="number"
                     id="amount" 
-                    //defaultValue={defaultValues.amount}
+                    //defaultValue={transactions[index].amount}
                     onChange={handleInputChange} 
                     required
                 />    
@@ -68,7 +68,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="text"
                     id="memo" 
-                    //defaultValue={defaultValues.memo}
+                    //defaultValue={transactions[index].memo}
                     onChange={handleInputChange} 
                     required
                 />    
