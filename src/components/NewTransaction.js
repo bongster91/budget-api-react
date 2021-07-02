@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import { Form, Button } from "react-bootstrap";
 
 function NewTransaction(props) {
     const { addTransaction } = props;
+    const history = useHistory();
 
     const [ transaction, setTransaction ] = useState({
         date: "",
@@ -22,7 +23,7 @@ function NewTransaction(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         addTransaction(transaction);
-        props.history.push("/transactions");
+        history.push("/transactions");
     };
 
     return (

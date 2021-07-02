@@ -35,7 +35,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="text"
                     id="name"
-                    //defaultValue={transactions[index].name}
+                    value={transactions[index].name}
                     onChange={handleInputChange} 
                     required
                 />    
