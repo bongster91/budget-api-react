@@ -3,7 +3,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { Form, Button } from 'react-bootstrap';
 
 function TransactionEdit(props) {
-    const { updateTransaction } = props;
+    const { transactions, updateTransaction } = props;
     let { index } = useParams();
     let history = useHistory();
 
@@ -35,7 +35,7 @@ function TransactionEdit(props) {
                 <Form.Control 
                     type="text"
                     id="name"
-                    value={transactions[index].name}
+                    //value={transactions[index].name}
                     onChange={handleInputChange} 
                     required
                 />    
