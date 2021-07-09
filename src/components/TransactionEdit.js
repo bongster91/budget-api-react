@@ -3,7 +3,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { Form, Button } from 'react-bootstrap';
 
 function TransactionEdit(props) {
-    const { transactions, updateTransaction } = props;
+    const { updateTransaction } = props;
     let { index } = useParams();
     let history = useHistory();
 

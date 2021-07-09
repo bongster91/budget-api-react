@@ -7,7 +7,7 @@ import { apiURL } from '../util/apiURL';
 const API_BASE = apiURL();
 
 function TransactionCard(props) {
-    const { transactions, deleteTransaction } = props;
+    const { deleteTransaction } = props;
     const [ transaction, setTransaction ] = useState([]);
     const date = new Date(transaction.date).toDateString();
     const amount = Number(transaction.amount)
