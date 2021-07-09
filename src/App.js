@@ -66,7 +66,7 @@ function App() {
         const { data } = response;
         setTransactions(data);
       });
-  }, [transactions]);
+  }, []);
 
   return (
     <div className="App">
