@@ -22,7 +22,7 @@ import Edit from "./Pages/Edit";
 />
 
 const API_BASE = apiURL();
-console.log(API_BASE)
+
 function App() {
   const [ transactions, setTransactions ] = useState([]);
 
